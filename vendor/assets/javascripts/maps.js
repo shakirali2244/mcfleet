@@ -8,7 +8,7 @@ function initMap() {
     zoom: 8
   });
 
-    socket = io.connect('http://shakirali.me:3001');
+    socket = io.connect('http://redditchat.us.to:3001');
  	 socket.on('location', function(data){
 		 if (!map){
 			 map = new google.maps.Map(document.getElementById('map'), {
@@ -49,3 +49,6 @@ function deleteMarkers() {
 	markers = [];
 }
 
+function sendJob(){
+socket.emit('sendJob',{endingpoint: 'Coquitlam BC', driver_id: 1 });
+}
